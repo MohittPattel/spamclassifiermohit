@@ -57,9 +57,9 @@ def predict(text):
 
 
 st.title('Spam Classifier')
-st.image('img.jpg')
-user_input=st.text_input('Enter your Message : ')
-submit=st.button('Predict')
+st.image('logo.png')
+user_input = st.text_input('Enter your Message : ')
+submit = st.button('Predict')
 if submit:
-    answer=predict([user_input])
+    answer = predict([user_input])
     st.text(answer)
