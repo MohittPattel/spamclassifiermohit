@@ -19,14 +19,14 @@ df.rename(columns={'v1': 'labels', 'v2': 'message'}, inplace=True)
 df.drop_duplicates(inplace=True)
 df['labels'] = df['labels'].map({'ham': 0, 'spam': 1})
 
-
+#In this function while iterating from each statement replace puntucation with space between the words
 def clean_data(message):
     message_without_punc = [
         character for character in message if character not in string.punctuation]
     message_without_punc = ''.join(message_without_punc)
 
     seperator = ' '
-
+    #Here all the Stopwords are replace by the space and return the given statment  
     return seperator.join([word for word in message_without_punc.split() if word.lower() not in stopwords.words('english')])
 
 
@@ -58,7 +58,7 @@ def predict(text):
 
 st.title('Spam Classifier')
 st.image('logo.png')
-user_input = st.text_input('Enter your Message : ')
+user_input = st.text_input('Enter your Message : ') #Take the user input and store it
 submit = st.button('Predict')
 if submit:
     answer = predict([user_input])
